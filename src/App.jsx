@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Login from './Login'
 
 function Home() {
   const styles = {
@@ -11,7 +11,7 @@ function Home() {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      backgroundColor: '#0A0D12',
+      backgroundColor: '#112537',
       color: 'white',
     },
     main: {
@@ -53,7 +53,7 @@ function Home() {
       fontSize: '1.2rem',
     },
     footer: {
-      borderTop: '1px solid white',
+      borderTop: '1px solid rgba(255, 255, 255, 0.2)',
       padding: '2rem',
       textAlign: 'left',
     },
@@ -167,11 +167,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </Router>
-  );
+  )
 }
 
 export default App

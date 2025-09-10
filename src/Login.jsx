@@ -8,7 +8,7 @@ function Login() {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      backgroundColor: '#0A0D12',
+      backgroundColor: '#112537',
       color: 'white',
     },
     main: {
@@ -72,7 +72,7 @@ function Login() {
       transition: 'opacity 0.3s ease',
     },
     footer: {
-      borderTop: '1px solid white',
+      borderTop: '1px solid rgba(255, 255, 255, 0.2)',
       padding: '2rem',
       textAlign: 'left',
     },
