@@ -1,7 +1,7 @@
 function Login() {
   const styles = {
     container: {
-      fontFamily: 'serif',
+      fontFamily: 'Georgia, "Times New Roman", serif',
       lineHeight: '1.6',
       margin: 0,
       padding: 0,
@@ -11,6 +11,17 @@ function Login() {
       backgroundColor: '#112537',
       color: 'white',
     },
+    header: {
+      position: 'absolute',
+      top: '8rem',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      zIndex: 10,
+    },
+    logo: {
+      height: '100px',
+      objectFit: 'contain',
+    },
     main: {
       flex: 1,
       display: 'flex',
@@ -19,11 +30,6 @@ function Login() {
       alignItems: 'center',
       padding: '2rem',
       textAlign: 'center',
-    },
-    logo: {
-      height: '60px',
-      objectFit: 'contain',
-      marginBottom: '2rem',
     },
     loginContainer: {
       backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -36,8 +42,19 @@ function Login() {
     title: {
       fontSize: '1.5rem',
       fontWeight: '400',
+      marginBottom: '1rem',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
+    },
+    services: {
+      fontSize: '1.2rem',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
+      color: 'white',
       marginBottom: '2rem',
-      fontFamily: 'serif',
+      textAlign: 'center',
     },
     form: {
       display: 'flex',
@@ -89,7 +106,9 @@ function Login() {
       display: 'flex',
       gap: '2rem',
       fontSize: '0.9rem',
-      fontFamily: 'sans-serif',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
     },
     footerLink: {
       color: 'white',
@@ -99,8 +118,11 @@ function Login() {
     },
     copyright: {
       fontSize: '0.9rem',
-      fontFamily: 'sans-serif',
+      fontFamily:
+        '"Trajan Pro", "Cinzel", "Times Ten LT Std Display", "Garamond Premier Pro Display", Georgia, "Times New Roman", Times, serif',
       opacity: 0.8,
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
     },
   }
 
@@ -112,16 +134,23 @@ function Login() {
 
   return (
     <div style={styles.container}>
-      {/* Main Content */}
-      <main style={styles.main}>
+      {/* Header with Logo */}
+      <header style={styles.header}>
         <img
-          src='/LFG-Logo.png'
+          src='/LFG-Icon-Logo-Dark.png'
           alt='Lauterbach Financial Group'
           style={styles.logo}
         />
+      </header>
 
+      {/* Main Content */}
+      <main style={styles.main}>
         <div style={styles.loginContainer}>
           <h1 style={styles.title}>PORTAL LOGIN</h1>
+
+          <div style={styles.services}>
+            ACCOUNTING | TAX | TRANSACTIONS | ADVISORY
+          </div>
 
           <form style={styles.form} onSubmit={handleSubmit}>
             <input
@@ -164,28 +193,7 @@ function Login() {
               style={styles.footerLink}
               onMouseEnter={e => (e.target.style.opacity = '1')}
               onMouseLeave={e => (e.target.style.opacity = '0.8')}>
-              DISCLOSURES
-            </a>
-            <a
-              href='#'
-              style={styles.footerLink}
-              onMouseEnter={e => (e.target.style.opacity = '1')}
-              onMouseLeave={e => (e.target.style.opacity = '0.8')}>
               PRIVACY POLICY
-            </a>
-            <a
-              href='#'
-              style={styles.footerLink}
-              onMouseEnter={e => (e.target.style.opacity = '1')}
-              onMouseLeave={e => (e.target.style.opacity = '0.8')}>
-              ADV BROCHURE
-            </a>
-            <a
-              href='#'
-              style={styles.footerLink}
-              onMouseEnter={e => (e.target.style.opacity = '1')}
-              onMouseLeave={e => (e.target.style.opacity = '0.8')}>
-              FORM CRS
             </a>
           </div>
           <div style={styles.copyright}>© 2025 LAUTERBACH FINANCIAL GROUP</div>

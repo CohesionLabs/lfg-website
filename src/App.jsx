@@ -4,7 +4,7 @@ import Login from './Login'
 function Home() {
   const styles = {
     container: {
-      fontFamily: 'serif',
+      fontFamily: 'Georgia, "Times New Roman", serif',
       lineHeight: '1.6',
       margin: 0,
       padding: 0,
@@ -13,6 +13,17 @@ function Home() {
       flexDirection: 'column',
       backgroundColor: '#112537',
       color: 'white',
+    },
+    header: {
+      position: 'absolute',
+      top: '8rem',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      zIndex: 10,
+    },
+    logo: {
+      height: '100px',
+      objectFit: 'contain',
     },
     main: {
       flex: 1,
@@ -23,34 +34,43 @@ function Home() {
       padding: '2rem',
       textAlign: 'center',
     },
-    logo: {
-      height: '60px',
-      objectFit: 'contain',
-      marginBottom: '3rem',
-    },
     companyName: {
-      fontSize: '3rem',
-      fontWeight: '400',
-      marginBottom: '2rem',
+      fontSize: '3.5rem',
+      fontWeight: '600',
+      marginBottom: '1rem',
+      letterSpacing: '0.1em',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
+    },
+    services: {
+      fontSize: '1.2rem',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
       letterSpacing: '0.05em',
-      fontFamily: 'serif',
+      color: 'white',
+      marginBottom: '3rem',
+      textAlign: 'center',
     },
     navigation: {
       display: 'flex',
       alignItems: 'center',
-      gap: '1rem',
-      marginBottom: '4rem',
-      fontSize: '1.1rem',
-      fontFamily: 'serif',
+      gap: '1.5rem',
+      fontSize: '1.2rem',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
+      fontVariant: 'small-caps',
     },
     navLink: {
       color: 'white',
       textDecoration: 'none',
       transition: 'opacity 0.3s ease',
+      fontWeight: '400',
     },
     separator: {
       color: 'white',
       fontSize: '1.2rem',
+      fontWeight: '300',
     },
     footer: {
       borderTop: '1px solid rgba(255, 255, 255, 0.2)',
@@ -70,7 +90,9 @@ function Home() {
       display: 'flex',
       gap: '2rem',
       fontSize: '0.9rem',
-      fontFamily: 'sans-serif',
+      fontFamily: '"Cinzel", serif',
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
     },
     footerLink: {
       color: 'white',
@@ -80,8 +102,10 @@ function Home() {
     },
     copyright: {
       fontSize: '0.9rem',
-      fontFamily: 'sans-serif',
+      fontFamily: '"Cinzel", serif',
       opacity: 0.8,
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
     },
     // Hover effects
     navLinkHover: {
@@ -94,15 +118,22 @@ function Home() {
 
   return (
     <div style={styles.container}>
-      {/* Main Content */}
-      <main style={styles.main}>
+      {/* Header with Logo */}
+      <header style={styles.header}>
         <img
-          src='/LFG-Logo.png'
+          src='/LFG-Icon-Logo-Dark.png'
           alt='Lauterbach Financial Group'
           style={styles.logo}
         />
+      </header>
 
+      {/* Main Content */}
+      <main style={styles.main}>
         <h1 style={styles.companyName}>LAUTERBACH FINANCIAL GROUP</h1>
+
+        <div style={styles.services}>
+          ACCOUNTING | TAX | TRANSACTIONS | ADVISORY
+        </div>
 
         <nav style={styles.navigation}>
           <a
@@ -132,28 +163,7 @@ function Home() {
               style={styles.footerLink}
               onMouseEnter={e => (e.target.style.opacity = '1')}
               onMouseLeave={e => (e.target.style.opacity = '0.8')}>
-              DISCLOSURES
-            </a>
-            <a
-              href='#'
-              style={styles.footerLink}
-              onMouseEnter={e => (e.target.style.opacity = '1')}
-              onMouseLeave={e => (e.target.style.opacity = '0.8')}>
               PRIVACY POLICY
-            </a>
-            <a
-              href='#'
-              style={styles.footerLink}
-              onMouseEnter={e => (e.target.style.opacity = '1')}
-              onMouseLeave={e => (e.target.style.opacity = '0.8')}>
-              ADV BROCHURE
-            </a>
-            <a
-              href='#'
-              style={styles.footerLink}
-              onMouseEnter={e => (e.target.style.opacity = '1')}
-              onMouseLeave={e => (e.target.style.opacity = '0.8')}>
-              FORM CRS
             </a>
           </div>
           <div style={styles.copyright}>© 2025 LAUTERBACH FINANCIAL GROUP</div>
