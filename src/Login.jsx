@@ -148,10 +148,6 @@ function Login() {
         <div style={styles.loginContainer}>
           <h1 style={styles.title}>PORTAL LOGIN</h1>
 
-          <div style={styles.services}>
-            ACCOUNTING | TAX | TRANSACTIONS | ADVISORY
-          </div>
-
           <form style={styles.form} onSubmit={handleSubmit}>
             <input
               type='email'
