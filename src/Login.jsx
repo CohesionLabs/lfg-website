@@ -1,7 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Login';
-
-function Home() {
+function Login() {
   const styles = {
     container: {
       fontFamily: 'serif',
@@ -26,31 +23,53 @@ function Home() {
     logo: {
       height: '60px',
       objectFit: 'contain',
-      marginBottom: '3rem',
+      marginBottom: '2rem',
     },
-    companyName: {
-      fontSize: '3rem',
+    loginContainer: {
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      padding: '3rem',
+      borderRadius: '8px',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      maxWidth: '400px',
+      width: '100%',
+    },
+    title: {
+      fontSize: '1.5rem',
       fontWeight: '400',
       marginBottom: '2rem',
-      letterSpacing: '0.05em',
       fontFamily: 'serif',
     },
-    navigation: {
+    form: {
       display: 'flex',
-      alignItems: 'center',
-      gap: '1rem',
-      marginBottom: '4rem',
-      fontSize: '1.1rem',
-      fontFamily: 'serif',
+      flexDirection: 'column',
+      gap: '1.5rem',
     },
-    navLink: {
+    input: {
+      padding: '0.75rem',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      borderRadius: '4px',
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      color: 'white',
+      fontSize: '1rem',
+      fontFamily: 'sans-serif',
+    },
+    button: {
+      padding: '0.75rem',
+      backgroundColor: '#3B82F6',
+      color: 'white',
+      border: 'none',
+      borderRadius: '4px',
+      fontSize: '1rem',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease',
+    },
+    backLink: {
       color: 'white',
       textDecoration: 'none',
+      marginTop: '2rem',
+      opacity: 0.8,
       transition: 'opacity 0.3s ease',
-    },
-    separator: {
-      color: 'white',
-      fontSize: '1.2rem',
     },
     footer: {
       borderTop: '1px solid white',
@@ -83,13 +102,12 @@ function Home() {
       fontFamily: 'sans-serif',
       opacity: 0.8,
     },
-    // Hover effects
-    navLinkHover: {
-      opacity: 0.7,
-    },
-    footerLinkHover: {
-      opacity: 1,
-    },
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    // For now, just show an alert since no login system is implemented
+    alert('Login system coming soon. Please contact info@LFG.CPA for access.')
   }
 
   return (
@@ -102,25 +120,39 @@ function Home() {
           style={styles.logo}
         />
 
-        <h1 style={styles.companyName}>LAUTERBACH FINANCIAL GROUP</h1>
+        <div style={styles.loginContainer}>
+          <h1 style={styles.title}>PORTAL LOGIN</h1>
 
-        <nav style={styles.navigation}>
+          <form style={styles.form} onSubmit={handleSubmit}>
+            <input
+              type='email'
+              placeholder='Email'
+              style={styles.input}
+              required
+            />
+            <input
+              type='password'
+              placeholder='Password'
+              style={styles.input}
+              required
+            />
+            <button
+              type='submit'
+              style={styles.button}
+              onMouseEnter={e => (e.target.style.backgroundColor = '#2563EB')}
+              onMouseLeave={e => (e.target.style.backgroundColor = '#3B82F6')}>
+              LOGIN
+            </button>
+          </form>
+
           <a
-            href='/login'
-            style={styles.navLink}
-            onMouseEnter={e => (e.target.style.opacity = '0.7')}
-            onMouseLeave={e => (e.target.style.opacity = '1')}>
-            PORTAL
+            href='/'
+            style={styles.backLink}
+            onMouseEnter={e => (e.target.style.opacity = '1')}
+            onMouseLeave={e => (e.target.style.opacity = '0.8')}>
+            ← Back to Home
           </a>
-          <span style={styles.separator}>|</span>
-          <a
-            href='mailto:info@LFG.CPA'
-            style={styles.navLink}
-            onMouseEnter={e => (e.target.style.opacity = '0.7')}
-            onMouseLeave={e => (e.target.style.opacity = '1')}>
-            INQUIRIES
-          </a>
-        </nav>
+        </div>
       </main>
 
       {/* Footer */}
@@ -163,15 +195,4 @@ function Home() {
   )
 }
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App
+export default Login
