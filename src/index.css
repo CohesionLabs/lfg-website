@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global styles to remove any white borders or backgrounds */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #112537;
+  overflow-x: hidden;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #112537;
+}
+
+/* Typography hierarchy with Cinzel for headings and brand elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+}
+
+/* Brand elements and navigation */
+.brand-text,
+.nav-text,
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+}
+
+/* Small caps styling for navigation */
+.nav-small-caps {
+  font-family: 'Cinzel', serif;
+  font-variant: small-caps;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}

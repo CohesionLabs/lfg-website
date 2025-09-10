@@ -1,7 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from './Login'
-
-function Home() {
+function Login() {
   const styles = {
     container: {
       fontFamily: 'Georgia, "Times New Roman", serif',
@@ -34,13 +31,21 @@ function Home() {
       padding: '2rem',
       textAlign: 'center',
     },
-    companyName: {
-      fontSize: '3.5rem',
-      fontWeight: '600',
+    loginContainer: {
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      padding: '3rem',
+      borderRadius: '8px',
+      border: '1px solid rgba(255, 255, 255, 0.1)',
+      maxWidth: '400px',
+      width: '100%',
+    },
+    title: {
+      fontSize: '1.5rem',
+      fontWeight: '400',
       marginBottom: '1rem',
-      letterSpacing: '0.1em',
       fontFamily: '"Cinzel", serif',
       textTransform: 'uppercase',
+      letterSpacing: '0.1em',
     },
     services: {
       fontSize: '1.2rem',
@@ -48,29 +53,40 @@ function Home() {
       textTransform: 'uppercase',
       letterSpacing: '0.05em',
       color: 'white',
-      marginBottom: '3rem',
+      marginBottom: '2rem',
       textAlign: 'center',
     },
-    navigation: {
+    form: {
       display: 'flex',
-      alignItems: 'center',
+      flexDirection: 'column',
       gap: '1.5rem',
-      fontSize: '1.2rem',
-      fontFamily: '"Cinzel", serif',
-      textTransform: 'uppercase',
-      letterSpacing: '0.05em',
-      fontVariant: 'small-caps',
     },
-    navLink: {
+    input: {
+      padding: '0.75rem',
+      border: '1px solid rgba(255, 255, 255, 0.2)',
+      borderRadius: '4px',
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      color: 'white',
+      fontSize: '1rem',
+      fontFamily: 'sans-serif',
+    },
+    button: {
+      padding: '0.75rem',
+      backgroundColor: '#3B82F6',
+      color: 'white',
+      border: 'none',
+      borderRadius: '4px',
+      fontSize: '1rem',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'background-color 0.3s ease',
+    },
+    backLink: {
       color: 'white',
       textDecoration: 'none',
+      marginTop: '2rem',
+      opacity: 0.8,
       transition: 'opacity 0.3s ease',
-      fontWeight: '400',
-    },
-    separator: {
-      color: 'white',
-      fontSize: '1.2rem',
-      fontWeight: '300',
     },
     footer: {
       borderTop: '1px solid rgba(255, 255, 255, 0.2)',
@@ -102,18 +118,18 @@ function Home() {
     },
     copyright: {
       fontSize: '0.9rem',
-      fontFamily: '"Cinzel", serif',
+      fontFamily:
+        '"Trajan Pro", "Cinzel", "Times Ten LT Std Display", "Garamond Premier Pro Display", Georgia, "Times New Roman", Times, serif',
       opacity: 0.8,
       textTransform: 'uppercase',
       letterSpacing: '0.05em',
     },
-    // Hover effects
-    navLinkHover: {
-      opacity: 0.7,
-    },
-    footerLinkHover: {
-      opacity: 1,
-    },
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    // For now, just show an alert since no login system is implemented
+    alert('Login system coming soon. Please contact info@LFG.CPA for access.')
   }
 
   return (
@@ -129,29 +145,43 @@ function Home() {
 
       {/* Main Content */}
       <main style={styles.main}>
-        <h1 style={styles.companyName}>LAUTERBACH FINANCIAL GROUP</h1>
+        <div style={styles.loginContainer}>
+          <h1 style={styles.title}>PORTAL LOGIN</h1>
 
-        <div style={styles.services}>
-          ACCOUNTING | TAX | TRANSACTIONS | ADVISORY
+          <div style={styles.services}>
+            ACCOUNTING | TAX | TRANSACTIONS | ADVISORY
+          </div>
+
+          <form style={styles.form} onSubmit={handleSubmit}>
+            <input
+              type='email'
+              placeholder='Email'
+              style={styles.input}
+              required
+            />
+            <input
+              type='password'
+              placeholder='Password'
+              style={styles.input}
+              required
+            />
+            <button
+              type='submit'
+              style={styles.button}
+              onMouseEnter={e => (e.target.style.backgroundColor = '#2563EB')}
+              onMouseLeave={e => (e.target.style.backgroundColor = '#3B82F6')}>
+              LOGIN
+            </button>
+          </form>
+
+          <a
+            href='/'
+            style={styles.backLink}
+            onMouseEnter={e => (e.target.style.opacity = '1')}
+            onMouseLeave={e => (e.target.style.opacity = '0.8')}>
+            ← Back to Home
+          </a>
         </div>
-
-        <nav style={styles.navigation}>
-          <a
-            href='/login'
-            style={styles.navLink}
-            onMouseEnter={e => (e.target.style.opacity = '0.7')}
-            onMouseLeave={e => (e.target.style.opacity = '1')}>
-            PORTAL
-          </a>
-          <span style={styles.separator}>|</span>
-          <a
-            href='mailto:info@LFG.CPA'
-            style={styles.navLink}
-            onMouseEnter={e => (e.target.style.opacity = '0.7')}
-            onMouseLeave={e => (e.target.style.opacity = '1')}>
-            INQUIRIES
-          </a>
-        </nav>
       </main>
 
       {/* Footer */}
@@ -173,15 +203,4 @@ function Home() {
   )
 }
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-      </Routes>
-    </Router>
-  )
-}
-
-export default App
+export default Login
