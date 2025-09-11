@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './Login'
+import PrivacyPolicy from './PrivacyPolicy'
 
 function Home() {
   const styles = {
@@ -80,10 +81,9 @@ function Home() {
     footerContent: {
       maxWidth: '1200px',
       margin: '0 auto',
-      display: 'flex',
-      justifyContent: 'space-between',
+      display: 'grid',
+      gridTemplateColumns: '1fr auto 1fr',
       alignItems: 'center',
-      flexWrap: 'wrap',
       gap: '1rem',
     },
     footerLinks: {
@@ -107,6 +107,14 @@ function Home() {
       textTransform: 'uppercase',
       letterSpacing: '0.05em',
     },
+    address: {
+      fontSize: '0.9rem',
+      fontFamily: '"Cinzel", serif',
+      opacity: 0.8,
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
+      textAlign: 'center',
+    },
     // Hover effects
     navLinkHover: {
       opacity: 0.7,
@@ -118,13 +126,9 @@ function Home() {
 
   return (
     <div style={styles.container}>
-      {/* Header with Logo */}
+      {/* Header - Logo removed temporarily */}
       <header style={styles.header}>
-        <img
-          src='/LFG-Icon-Logo-Dark.png'
-          alt='Lauterbach Financial Group'
-          style={styles.logo}
-        />
+        {/* Logo will be updated by client */}
       </header>
 
       {/* Main Content */}
@@ -158,15 +162,20 @@ function Home() {
       <footer style={styles.footer}>
         <div style={styles.footerContent}>
           <div style={styles.footerLinks}>
-            <a
-              href='#'
+            <Link
+              to='/privacy-policy'
               style={styles.footerLink}
               onMouseEnter={e => (e.target.style.opacity = '1')}
               onMouseLeave={e => (e.target.style.opacity = '0.8')}>
               PRIVACY POLICY
-            </a>
+            </Link>
           </div>
-          <div style={styles.copyright}>© 2025 LAUTERBACH FINANCIAL GROUP</div>
+          <div style={styles.address}>
+            1214 W. 6TH STE. 216, AUSTIN, TX 78703
+          </div>
+          <div style={{ ...styles.copyright, textAlign: 'right' }}>
+            © 2025 LAUTERBACH FINANCIAL GROUP, LLC
+          </div>
         </div>
       </footer>
     </div>
@@ -179,6 +188,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   )
